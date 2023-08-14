@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WorryInput from './WorryInput';
+import WorryList from './WorryList';
+import Visualization from './Visualization';
+import { Container, Typography } from '@material-ui/core';
 
 function App() {
+  const [worries, setWorries] = useState([]);
+
+  const addWorry = (worry) => {
+    setWorries([...worries, worry]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="md">
+      <Typography variant="h2" align="center" gutterBottom>
+        Worry Tracker
+      </Typography>
+      <WorryInput addWorry={addWorry} />
+      <WorryList worries={worries} />
+      <Visualization worries={worries} />
+    </Container>
   );
 }
 
