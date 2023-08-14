@@ -1,0 +1,23 @@
+.guided-breathing-exercise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+  }
+  
+  .breathing-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    transition: all 4s ease-in-out;
+  }
+  
+  .breathing-circle.inhale {
+    transform: scale(0.2);
+  }
+  
+  .breathing-circle.exhale {
+    transform: scale(0.7);
+  }
